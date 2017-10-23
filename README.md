@@ -1,4 +1,5 @@
 # ngx-json-ld
+A small component to easily bind [JSON-LD](https://developers.google.com/search/docs/guides/intro-structured-data) schema to Angular templates.
 
 ## Installation
 
@@ -35,10 +36,38 @@ import { NgxJsonLdModule } from 'ngx-json-ld';
 export class AppModule { }
 ```
 
+## Component
+
 Once the library is imported, you can use the `ngx-json-ld` component.
 
+```typescript
+@Component({
+  selector: 'app',
+  template: `<ngx-json-ld [json]="schema"></ngx-json-ld>`
+})
+class AppComponent {
+  schema = {
+    '@context': 'http://schema.org',
+    '@type': 'WebSite',
+    'name': 'angular.io',
+    'url': 'https://angular.io'
+  };
+}
+```
+
+## Output
+
 ```xml
-<ngx-json-ld [json]="myJsonData"></ngx-json-data>
+<ngx-json-ld>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "angular.io",
+      "url": "https://angular.io"
+    }
+  </script>
+</ngx-json-ld>
 ```
 
 ## License

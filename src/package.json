@@ -1,9 +1,9 @@
 {
   "name": "ngx-json-ld",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "repository": {
     "type": "git",
-    "url": "https://github.com/username/repo"
+    "url": "https://github.com/coryrylan/ngx-json-ld"
   },
   "author": {
     "name": "Cory Rylan"
@@ -13,7 +13,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/username/repo/issues"
+    "url": "https://github.com/coryrylan/ngx-json-ld/issues"
   },
   "main": "ngx-json-ld.umd.js",
   "module": "ngx-json-ld.js",
