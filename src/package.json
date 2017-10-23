@@ -1,0 +1,27 @@
+{
+  "name": "ngx-json-ld",
+  "version": "0.1.5",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/repo"
+  },
+  "author": {
+    "name": "Cory Rylan"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/username/repo/issues"
+  },
+  "main": "ngx-json-ld.umd.js",
+  "module": "ngx-json-ld.js",
+  "jsnext:main": "ngx-json-ld.js",
+  "typings": "ngx-json-ld.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
