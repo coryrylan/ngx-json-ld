@@ -1,6 +1,6 @@
 {
   "name": "ngx-json-ld",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "repository": {
     "type": "git",
     "url": "https://github.com/coryrylan/ngx-json-ld"
@@ -20,8 +20,8 @@
   "jsnext:main": "ngx-json-ld.js",
   "typings": "ngx-json-ld.d.ts",
   "peerDependencies": {
-    "@angular/core": "^4.0.0",
-    "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4"
+    "@angular/core": "^5.0.0",
+    "rxjs": "^5.5.2",
+    "zone.js": "^0.8.18"
   }
 }
