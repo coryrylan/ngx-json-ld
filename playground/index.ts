@@ -15,7 +15,8 @@ import { NgxJsonLdModule } from 'ngx-json-ld';
 class AppComponent {
   json = {
     name: 'Cory',
-    age: 26
+    age: 26,
+    test: '<script>alert(0)</script>'
   };
 }
 

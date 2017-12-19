@@ -15,7 +15,7 @@ export class JsonLdComponent implements OnChanges {
   }
 
   getSafeHTML(value: {}) {
-    const json = JSON.stringify(value, null, 2);
+    const json = JSON.stringify(value, null, 2).replace(/\//g, '\\/');
     const html = `<script type="application/ld+json">${json}</script>`;
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
