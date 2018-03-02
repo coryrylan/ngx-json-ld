@@ -1,0 +1,20 @@
+{
+  "name": "ngx-json-ld",
+  "version": "0.3.0",
+  "repository": "https://github.com/coryrylan/ngx-json-ld",
+  "author": "Cory Rylan",
+  "license": "MIT",
+  "private": false,
+  "peerDependencies": {
+    "@angular/core": "^5.0.0",
+    "@angular/common": "^5.0.0"
+  },
+  "main": "bundles/ngx-json-ld.umd.js",
+  "module": "esm5/ngx-json-ld.js",
+  "es2015": "esm2015/ngx-json-ld.js",
+  "typings": "ngx-json-ld.d.ts",
+  "metadata": "ngx-json-ld.metadata.json",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  }
+}

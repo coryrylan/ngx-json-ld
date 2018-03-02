@@ -1,6 +1,8 @@
 # ngx-json-ld
 A small component to easily bind [JSON-LD](https://developers.google.com/search/docs/guides/intro-structured-data) schema to Angular templates.
 
+## [Demo](https://stackblitz.com/edit/angular-oyrw84)
+
 ## Installation
 
 To install this library, run:
@@ -26,9 +28,8 @@ import { NgxJsonLdModule } from 'ngx-json-ld';
   ],
   imports: [
     BrowserModule,
-
     // Register module
-    NgxJsonLdModule.forRoot()
+    NgxJsonLdModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "file": "ngx-json-ld.js",
+  "sources": [
+    "ng://ngx-json-ld/out/ngx-json-ld.module.ts",
+    "ng://ngx-json-ld/out/ngx-json-ld.component.ts"
+  ],
+  "sourcesContent": [
+    "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { NgxJsonLdComponent } from './ngx-json-ld.component';\n\n@NgModule({\n  imports: [\n    CommonModule\n  ],\n  declarations: [NgxJsonLdComponent],\n  exports: [NgxJsonLdComponent]\n})\nexport class NgxJsonLdModule { }\n",
+    "import { Component, HostBinding, Input, OnChanges, SimpleChanges } from '@angular/core';\nimport { DomSanitizer, SafeHtml } from '@angular/platform-browser';\n\n@Component({\n  selector: 'ngx-json-ld',\n  template: ''\n})\nexport class NgxJsonLdComponent implements OnChanges {\n  @Input() json;\n  @HostBinding('innerHTML') jsonLD: SafeHtml;\n  constructor(private sanitizer: DomSanitizer) { }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.jsonLD = this.getSafeHTML(changes.json.currentValue);\n  }\n\n  getSafeHTML(value: {}) {\n    const json = value ? JSON.stringify(value, null, 2).replace(/<\\/script>/g, '<\\\\/script>') : '';\n    const html = `<script type=\"application/ld+json\">${json}</script>`;\n    return this.sanitizer.bypassSecurityTrustHtml(html);\n  }\n}\n"
+  ],
+  "names": [],
+  "mappings": ";;;;;;;;ACAA,AAOA,MAAA,kBAAA,CAAA;;;;IAGE,WAAF,CAAsB,SAAuB,EAA7C;QAAsB,IAAtB,CAAA,SAA+B,GAAT,SAAS,CAAc;KAAK;;;;;IAEhD,WAAW,CAAC,OAAsB,EAApC;QACI,IAAI,CAAC,MAAM,GAAG,IAAI,CAAC,WAAW,CAAC,OAAO,CAA1C,MAAA,CAAA,CAAgD,YAAY,CAAC,CAAC;KAC3D;;;;;IAED,WAAW,CAAC,KAAS,EAAvB;QACI,uBAAM,IAAI,GAAG,KAAK,GAAG,IAAI,CAAC,SAAS,CAAC,KAAK,EAAE,IAAI,EAAE,CAAC,CAAC,CAAC,OAAO,CAAC,aAAa,EAAE,aAAa,CAAC,GAAG,EAAE,CAAC;QAC/F,uBAAM,IAAI,GAAG,CAAjB,mCAAA,EAAuD,IAAI,CAA3D,SAAA,CAAsE,CAAC;QACnE,OAAO,IAAI,CAAC,SAAS,CAAC,uBAAuB,CAAC,IAAI,CAAC,CAAC;KACrD;;;IAjBH,EAAA,IAAA,EAAC,SAAS,EAAV,IAAA,EAAA,CAAW;gBACT,QAAQ,EAAE,aAAa;gBACvB,QAAQ,EAAE,EAAE;aACb,EAAD,EAAA;;;;IALA,EAAA,IAAA,EAAS,YAAY,GAArB;;;IAOA,MAAA,EAAA,CAAA,EAAA,IAAA,EAAG,KAAK,EAAR,EAAA;IACA,QAAA,EAAA,CAAA,EAAA,IAAA,EAAG,WAAW,EAAd,IAAA,EAAA,CAAe,WAAW,EAA1B,EAAA,EAAA;;;;;;;ADTA,AAWA,MAAA,eAAA,CAAA;;;IAPA,EAAA,IAAA,EAAC,QAAQ,EAAT,IAAA,EAAA,CAAU;gBACR,OAAO,EAAE;oBACP,YAAY;iBACb;gBACD,YAAY,EAAE,CAAC,kBAAkB,CAAC;gBAClC,OAAO,EAAE,CAAC,kBAAkB,CAAC;aAC9B,EAAD,EAAA;;;;;;;;;;;;;;;;;;;;"
+}

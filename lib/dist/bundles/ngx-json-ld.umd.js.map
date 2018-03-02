@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "file": "ngx-json-ld.umd.js",
+  "sources": [
+    "ng://ngx-json-ld/out/ngx-json-ld.module.ts",
+    "ng://ngx-json-ld/out/ngx-json-ld.component.ts"
+  ],
+  "sourcesContent": [
+    "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { NgxJsonLdComponent } from './ngx-json-ld.component';\n\n@NgModule({\n  imports: [\n    CommonModule\n  ],\n  declarations: [NgxJsonLdComponent],\n  exports: [NgxJsonLdComponent]\n})\nexport class NgxJsonLdModule { }\n",
+    "import { Component, HostBinding, Input, OnChanges, SimpleChanges } from '@angular/core';\nimport { DomSanitizer, SafeHtml } from '@angular/platform-browser';\n\n@Component({\n  selector: 'ngx-json-ld',\n  template: ''\n})\nexport class NgxJsonLdComponent implements OnChanges {\n  @Input() json;\n  @HostBinding('innerHTML') jsonLD: SafeHtml;\n  constructor(private sanitizer: DomSanitizer) { }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.jsonLD = this.getSafeHTML(changes.json.currentValue);\n  }\n\n  getSafeHTML(value: {}) {\n    const json = value ? JSON.stringify(value, null, 2).replace(/<\\/script>/g, '<\\\\/script>') : '';\n    const html = `<script type=\"application/ld+json\">${json}</script>`;\n    return this.sanitizer.bypassSecurityTrustHtml(html);\n  }\n}\n"
+  ],
+  "names": [
+    "CommonModule",
+    "NgModule",
+    "HostBinding",
+    "Input",
+    "DomSanitizer",
+    "Component"
+  ],
+  "mappings": ";;;;;;ACAA,IAAA,kBAAA,kBAAA,YAAA;IAUE,SAAF,kBAAA,CAAsB,SAAuB,EAA7C;QAAsB,IAAtB,CAAA,SAA+B,GAAT,SAAS,CAAc;KAAK;IAEhD,kBAAF,CAAA,SAAA,CAAA,WAAa,GAAX,UAAY,OAAsB,EAApC;QACI,IAAI,CAAC,MAAM,GAAG,IAAI,CAAC,WAAW,CAAC,OAAO,CAA1C,MAAA,CAAA,CAAgD,YAAY,CAAC,CAAC;KAC3D,CAAH;IAEE,kBAAF,CAAA,SAAA,CAAA,WAAa,GAAX,UAAY,KAAS,EAAvB;QACI,IAAM,IAAI,GAAG,KAAK,GAAG,IAAI,CAAC,SAAS,CAAC,KAAK,EAAE,IAAI,EAAE,CAAC,CAAC,CAAC,OAAO,CAAC,aAAa,EAAE,aAAa,CAAC,GAAG,EAAE,CAAC;QAC/F,IAAM,IAAI,GAAG,uCAAjB,GAAuD,IAAI,GAA3D,WAAsE,CAAC;QACnE,OAAO,IAAI,CAAC,SAAS,CAAC,uBAAuB,CAAC,IAAI,CAAC,CAAC;KACrD,CAAH;;;;IAjBA,EAAA,IAAA,EAACK,cAAS,EAAV,IAAA,EAAA,CAAW;gBACT,QAAQ,EAAE,aAAa;gBACvB,QAAQ,EAAE,EAAE;aACb,EAAD,EAAA;;;IALA,EAAA,IAAA,EAASD,4BAAY,GAArB;;;IAOA,MAAA,EAAA,CAAA,EAAA,IAAA,EAAGD,UAAK,EAAR,EAAA;IACA,QAAA,EAAA,CAAA,EAAA,IAAA,EAAGD,gBAAW,EAAd,IAAA,EAAA,CAAe,WAAW,EAA1B,EAAA,EAAA;;ADTA,IAAA,eAAA,kBAAA,YAAA;IAAA,SAAA,eAAA,GAAA;;;;;IAIA,EAAA,IAAA,EAACD,aAAQ,EAAT,IAAA,EAAA,CAAU;gBACR,OAAO,EAAE;oBACPD,mBAAY;iBACb;gBACD,YAAY,EAAE,CAAC,kBAAkB,CAAC;gBAClC,OAAO,EAAE,CAAC,kBAAkB,CAAC;aAC9B,EAAD,EAAA;;;;;;;;;;;;;;;"
+}
