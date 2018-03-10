@@ -1,4 +1,6 @@
-# ngx-json-ld
+## This project has moved and can now be found [here](https://github.com/coryrylan/ngx-libraries).
+
+## ngx-json-ld
 A small component to easily bind [JSON-LD](https://developers.google.com/search/docs/guides/intro-structured-data) schema to Angular templates.
 
 ## [Demo](https://stackblitz.com/edit/angular-oyrw84)
